@@ -1,0 +1,11 @@
+version: '2'
+services:
+  geth:
+    build: .
+    restart: on-failure
+    entrypoint: /root/start.sh
+    volumes:
+      - ./../files/password:/root/files/password:ro
+      - ./../files/genesis.json:/root/files/genesis.json:ro
+      - ./../files/keystore:/root/.ethereum/devchain/keystore:rw
+    command: '--datadir=~/.ethereum/devchain --rpccorsdomain="*" --networkid=456719 --rpc --nodiscover'
