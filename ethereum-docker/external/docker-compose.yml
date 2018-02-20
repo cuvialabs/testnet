@@ -9,3 +9,7 @@ services:
       - ./../files/genesis.json:/root/files/genesis.json:ro
       - ./../files/keystore:/root/.ethereum/devchain/keystore:rw
     command: '--datadir=~/.ethereum/devchain --rpccorsdomain="*" --networkid=456719 --rpc --nodiscover'
+    ports:
+      - "30303:30303"
+      - "30303:30303/udp"
+      - "8545:8545"
