@@ -8,4 +8,9 @@ services:
       - ./../files/password:/root/files/password:ro
       - ./../files/genesis.json:/root/files/genesis.json:ro
       - ./../files/keystore:/root/.ethereum/devchain/keystore:rw
-    command: '--datadir=~/.ethereum/devchain --rpccorsdomain="*" --networkid=456719 --rpc --nodiscover'
+      - "/etc/localtime:/etc/localtime:ro"
+    command: '--datadir=~/.ethereum/devchain --rpcapi "db,personal,eth,net,web3" --rpccorsdomain="*" --networkid=567820 --rpc --rpcaddr="0.0.0.0"'
+    ports:
+      - "30303:30303"
+      - "30303:30303/udp"
+      - "8545:8545"
